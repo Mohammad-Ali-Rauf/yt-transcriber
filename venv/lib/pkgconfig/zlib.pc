@@ -1,0 +1,13 @@
+prefix=/home/ali/Documents/yt-transcriber/venv
+exec_prefix=/home/ali/Documents/yt-transcriber/venv
+libdir=/home/ali/Documents/yt-transcriber/venv/lib
+sharedlibdir=/home/ali/Documents/yt-transcriber/venv/lib
+includedir=/home/ali/Documents/yt-transcriber/venv/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.13
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
