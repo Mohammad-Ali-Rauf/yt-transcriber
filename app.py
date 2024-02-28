@@ -10,8 +10,9 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 prompt="""You are a youtube video summarizer. You will be taking the transcript text and summzarizing the entire video and providing the important things in bullet points within 250 words. Here comes the transcript text good luck:  """
 
 def extractTranscriptionFromVideo(videoUrl: str):
-    try:
-        with st.spinner("Fetching transcript...."):
+    with st.spinner("Fetching transcript...."):
+        try:
+        
             videoId=videoUrl.split("=")[1]
             transcriptText=YouTubeTranscriptApi.get_transcript(video_id=videoId)
 
@@ -21,8 +22,8 @@ def extractTranscriptionFromVideo(videoUrl: str):
                     
             return transcript
 
-    except:
-        st.write("Sorry for the inconvenience but transcription for this video is not available yet.")
+        except:
+            st.error("Sorry for the inconvenience but transcription for this video is not available yet.")
 
 def generateSummary(transcriptText, prompt: str):
     with st.spinner("Generating Summary...."):
